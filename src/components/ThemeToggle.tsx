@@ -6,7 +6,6 @@ import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  // false on the server, true in the browser: avoids a theme-icon hydration mismatch
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
