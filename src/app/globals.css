@@ -70,3 +70,48 @@
   --depth: 0;
   --noise: 0;
 }
+
+@theme inline {
+  --font-display: var(--font-anton), Impact, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --animate-fade-in: fade-in 0.25s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+}
+
+@layer components {
+  .section-title {
+    font-family: var(--font-anton), Impact, sans-serif;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+  }
+  .eyebrow {
+    font-family: var(--font-space-mono), ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    color: var(--color-primary);
+  }
+}
