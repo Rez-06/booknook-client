@@ -1,5 +1,6 @@
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
+import { jwt } from "better-auth/plugins";
 import { MongoClient } from "mongodb";
 
 // Reuse one Mongo connection across hot reloads in development
@@ -22,4 +23,6 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
+  // Issues JWTs (and publishes /api/auth/jwks) so the Express server can verify users
+  plugins: [jwt()],
 });

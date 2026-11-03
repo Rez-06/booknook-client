@@ -1,12 +1,25 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { authClient } from "./auth-client";
+
 export type AuthUser = { name: string; email: string; image?: string | null };
 
-// Temporary stub. Replaced by the real Better Auth hook in push 14.
-export function useAuthUser(): {
-  user: AuthUser | null;
-  isPending: boolean;
-  logout: () => Promise<void>;
-} {
-  return { user: null, isPending: false, logout: async () => {} };
+export function useAuthUser() {
+  const { data, isPending } = authClient.useSession();
+  const router = useRouter();
+
+  const logout = async () => {
+    await authClient.signOut();
+    toast.success("Logged out");
+    router.push("/");
+    router.refresh();
+  };
+
+  const user: AuthUser | null = data?.user
+    ? { name: data.user.name, email: data.user.email, image: data.user.image }
+    : null;
+
+  return { user, isPending, logout };
 }
