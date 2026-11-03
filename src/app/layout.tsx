@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, DM_Sans, Instrument_Serif, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
+import Navbar from "@/components/Navbar";
 
 const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton" });
 const spaceMono = Space_Mono({
@@ -29,7 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${anton.variable} ${spaceMono.variable} ${instrument.variable} ${dmSans.variable}`}
     >
       <body className="bg-base-100 font-sans text-base-content antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          <main className="min-h-screen pt-24">{children}</main>
+        </Providers>
       </body>
     </html>
   );
