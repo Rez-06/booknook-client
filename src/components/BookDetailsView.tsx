@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import BookCover from "./BookCover";
+import BorrowButton from "./BorrowButton";
 import Spinner from "./Spinner";
 import { api } from "@/lib/api";
 import type { Book } from "@/lib/types";
@@ -69,6 +70,15 @@ export default function BookDetailsView() {
               </dd>
             </div>
           </dl>
+
+          <div className="mt-8">
+            <BorrowButton
+              book={book}
+              onBorrowed={() =>
+                setBook((b) => (b ? { ...b, availableCopies: Math.max(b.availableCopies - 1, 0) } : b))
+              }
+            />
+          </div>
         </div>
       </div>
     </div>

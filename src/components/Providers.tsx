@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "react-hot-toast";
+import { BorrowedProvider } from "./BorrowedProvider";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +12,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       themes={["booknook-light", "booknook-dark"]}
       enableSystem={false}
     >
-      {children}
+      <BorrowedProvider>{children}</BorrowedProvider>
       <Toaster
         position="top-center"
         toastOptions={{
