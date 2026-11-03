@@ -49,8 +49,8 @@ export default function BooksView() {
         <p className="py-16 text-center opacity-70">No books in this category yet.</p>
       ) : (
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {shown.map((b) => (
-            <BookCard key={b._id} book={b} />
+          {shown.map((b, i) => (
+            <BookCard key={b._id} book={b} index={i} />
           ))}
         </div>
       )}

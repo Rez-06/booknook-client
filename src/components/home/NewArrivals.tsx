@@ -33,8 +33,8 @@ export default function NewArrivals() {
         <p className="py-12 text-center opacity-70">No books yet. Be the first to add one!</p>
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {books.map((b) => (
-            <BookCard key={b._id} book={b} />
+          {books.map((b, i) => (
+            <BookCard key={b._id} book={b} index={i} />
           ))}
         </div>
       )}
