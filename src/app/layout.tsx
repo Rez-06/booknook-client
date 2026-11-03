@@ -3,6 +3,7 @@ import { Anton, DM_Sans, Instrument_Serif, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton" });
 const spaceMono = Space_Mono({
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <Navbar />
           <main className="min-h-screen pt-24">{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
