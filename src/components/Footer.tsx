@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import Logo from "./Logo";
@@ -89,7 +90,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-primary-content/25 pt-6 font-mono text-xs uppercase">
-          <span>© {new Date().getFullYear()} BookNook. All rights reserved.</span>
+          <span>© 2026 BookNook. All rights reserved.</span>
           <span>Add a book · Borrow a book · Return a book</span>
         </div>
       </div>

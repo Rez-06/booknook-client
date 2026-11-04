@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight, LogOut, Menu, User as UserIcon, X } from "lucide-react";
@@ -74,7 +74,7 @@ function UserMenu({ user, logout }: { user: AuthUser; logout: () => Promise<void
   );
 }
 
-export default function Navbar() {
+function NavbarContent() {
   const pathname = usePathname();
   const { user, isPending, logout } = useAuthUser();
   const [open, setOpen] = useState(false);
@@ -207,5 +207,13 @@ export default function Navbar() {
         </div>
       )}
     </>
+  );
+}
+
+export default function Navbar() {
+  return (
+    <Suspense fallback={null}>
+      <NavbarContent />
+    </Suspense>
   );
 }
