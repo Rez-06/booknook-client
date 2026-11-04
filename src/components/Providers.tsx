@@ -9,6 +9,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     <ThemeProvider
       attribute="data-theme"
       defaultTheme="booknook-light"
+      storageKey="booknook-theme"
       themes={["booknook-light", "booknook-dark"]}
       enableSystem={false}
     >

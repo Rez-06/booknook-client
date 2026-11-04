@@ -74,7 +74,7 @@ export default function MyBooksView() {
               {mine.map((b) => (
                 <tr key={b._id}>
                   <td>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    
                     <img src={b.image} alt={b.title} className="h-20 w-14 rounded-lg object-cover" />
                   </td>
                   <td>
@@ -91,7 +91,7 @@ export default function MyBooksView() {
                     <div className="flex justify-end gap-2">
                       <button
                         onClick={() => setEditing(b)}
-                        className="btn btn-sm rounded-full font-mono uppercase"
+                        className="btn btn-outline btn-sm rounded-full font-mono uppercase"
                       >
                         <Pencil size={14} /> Edit
                       </button>
@@ -125,7 +125,7 @@ export default function MyBooksView() {
           undone.
         </p>
         <div className="mt-6 flex gap-3">
-          <button onClick={() => setDeleting(null)} className="btn flex-1 rounded-full font-mono uppercase">
+          <button onClick={() => setDeleting(null)} className="btn btn-outline flex-1 rounded-full font-mono uppercase">
             Cancel
           </button>
           <button
