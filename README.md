@@ -2,8 +2,8 @@
 
 A small online library. **Add a book, borrow a book, return a book.**
 
-🔗 **Live site:** https://YOUR-CLIENT.vercel.app
-🔗 **API:** https://YOUR-SERVER.vercel.app
+🔗 **Live site:** https://booknook-client-rez24.vercel.app/
+🔗 **API:** https://booknook-server-rez24.vercel.app/
 
 ## Features
 
