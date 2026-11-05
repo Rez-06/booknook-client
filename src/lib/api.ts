@@ -1,6 +1,6 @@
 import { authClient } from "./auth-client";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
+export const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000").replace(/\/+$/, "");
 
 type Options = { method?: string; body?: unknown; auth?: boolean };
 

@@ -9,7 +9,7 @@ if (!authSecret) {
   throw new Error("BETTER_AUTH_SECRET is not configured");
 }
 
-// Live site URL, e.g. https://booknook-client-rez24.vercel.app (no trailing slash)
+
 const baseURL = (process.env.BETTER_AUTH_URL || "http://localhost:3000").replace(/\/$/, "");
 
 const globalForMongo = globalThis as unknown as {
@@ -46,11 +46,12 @@ export const auth = betterAuth({
     },
   },
 
-  // Lets someone who registered with email later sign in with Google on the same address
+  
   account: {
     accountLinking: {
       enabled: true,
       trustedProviders: ["google"],
+      requireLocalEmailVerified: false,
     },
   },
 
