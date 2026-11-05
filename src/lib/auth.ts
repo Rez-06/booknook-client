@@ -55,5 +55,5 @@ export const auth = betterAuth({
     },
   },
 
-  plugins: [jwt()],
+    plugins: [jwt({ jwks: { disablePrivateKeyEncryption: true } })],
 });
