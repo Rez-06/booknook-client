@@ -9,6 +9,9 @@ if (!authSecret) {
   throw new Error("BETTER_AUTH_SECRET is not configured");
 }
 
+// Live site URL, e.g. https://booknook-client-rez24.vercel.app (no trailing slash)
+const baseURL = (process.env.BETTER_AUTH_URL || "http://localhost:3000").replace(/\/$/, "");
+
 const globalForMongo = globalThis as unknown as {
   _bookNookMongo?: MongoClient;
 };
@@ -25,6 +28,8 @@ const db = client.db("booknook");
 
 export const auth = betterAuth({
   secret: authSecret,
+  baseURL,
+  trustedOrigins: [baseURL],
 
   database: mongodbAdapter(db),
 
@@ -38,6 +43,14 @@ export const auth = betterAuth({
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    },
+  },
+
+  // Lets someone who registered with email later sign in with Google on the same address
+  account: {
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["google"],
     },
   },
 

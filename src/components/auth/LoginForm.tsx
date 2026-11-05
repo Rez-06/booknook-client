@@ -33,7 +33,7 @@ export default function LoginForm() {
         return;
       }
       toast.success("Welcome back!");
-      router.push(redirect);
+      window.location.assign(redirect);
     } catch (err) {
       toast.error(errMsg(err));
     } finally {
